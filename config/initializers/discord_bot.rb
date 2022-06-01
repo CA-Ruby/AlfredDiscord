@@ -1,9 +1,9 @@
 module DiscordBot
-    throw "Lacking required secrets!" unless ENV["TOKEN"] && ENV["CLIENT_ID"]
+    throw "Lacking required secrets!" unless Rails.application.credentials.discord[:token] && Rails.application.credentials.discord[:client_id]
   
     @bot = Discordrb::Bot.new(
-      token: Rails.application.credentials.discort[:token],
-      client_id: Rails.application.credentials.discort[:client_id],
+      token: Rails.application.credentials.discord[:token],
+      client_id: Rails.application.credentials.discord[:client_id],
     )
   
     puts "This bot's invite URL is #{@bot.invite_url}"
