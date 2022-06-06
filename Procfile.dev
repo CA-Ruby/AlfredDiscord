@@ -1,0 +1,2 @@
+bot: rake bot
+web: bin/rails server -p 3000

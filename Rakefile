@@ -4,3 +4,11 @@
 require_relative "config/application"
 
 Rails.application.load_tasks
+loader = Zeitwerk::Loader.for_gem
+loader.push_dir("#{File.dirname(__FILE__)}/config/initializers")
+loader.setup
+
+
+task :bot do
+  DiscordBot.run
+end
