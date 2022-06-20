@@ -13,10 +13,12 @@ module DiscordBot
   require './app/bot/commands/ping.rb'
   require './app/bot/commands/start.rb'
   require './app/bot/commands/stop.rb'
+  require './app/bot/commands/auto_msg.rb'
   commands = [
     DiscordBot::Ping,
     DiscordBot::Start,
     DiscordBot::Stop,
+    DiscordBot::Auto_msg,
   ]
   commands.each { |command| BOT.include!(command) }
 
