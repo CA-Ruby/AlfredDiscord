@@ -1,0 +1,45 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  what: MyString
+  feeling: MyString
+  flow: MyString
+  user: one
+  activity_name: MyString
+  activity_category: MyString
+  challenge_level: 1
+  skill_level: 1
+  feeling_competent: 1
+  mentally_absorbed: 1
+  clear_objectives: 1
+  control_situation: 1
+  free_from_ego: 1
+  free_from_time: 1
+  clear_conditions: 1
+  great_experience: 1
+  is_voluntary: false
+  happiness_level: 1
+  social_quality: 1
+  energy_level: 1
+
+two:
+  what: MyString
+  feeling: MyString
+  flow: MyString
+  user: two
+  activity_name: MyString
+  activity_category: MyString
+  challenge_level: 1
+  skill_level: 1
+  feeling_competent: 1
+  mentally_absorbed: 1
+  clear_objectives: 1
+  control_situation: 1
+  free_from_ego: 1
+  free_from_time: 1
+  clear_conditions: 1
+  great_experience: 1
+  is_voluntary: false
+  happiness_level: 1
+  social_quality: 1
+  energy_level: 1
