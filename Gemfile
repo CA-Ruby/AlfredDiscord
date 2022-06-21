@@ -51,7 +51,7 @@ gem 'discordrb'
 gem "foreman"
 gem "rake"
 gem "zeitwerk"
-gem "google-apis-forms_v1"
+gem "google-apis-sheets_v4"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
