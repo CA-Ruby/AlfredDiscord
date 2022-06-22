@@ -1,14 +1,8 @@
-# ibnaternpryakahm
-
 require 'google/apis/sheets_v4'
 
-OOB_URI = 'urn:ietf:wg:oauth:2.0:oob'.freeze
 APPLICATION_NAME = 'Alfred'.freeze
 CREDENTIALS_PATH = 'storage/credentials.json'.freeze
-# The file token.yaml stores the user's access and refresh tokens, and is
-# created automatically when the authorization flow completes for the first
-# time.
-TOKEN_PATH = 'token.yaml'.freeze
+
 SCOPE = [Google::Apis::SheetsV4::AUTH_SPREADSHEETS_READONLY]
 
 ##
@@ -22,16 +16,10 @@ authorize = Google::Auth::ServiceAccountCredentials.make_creds(json_key_io: File
 authorize.fetch_access_token!
 # Connect to Google
 service = Google::Apis::SheetsV4::SheetsService.new
-service.client_options.application_name = 'Alfred'
+service.client_options.application_name = APPLICATION_NAME
 service.authorization = authorize
 
 spreadsheet_id = "1ov-_HcZTn-8c4zQiCa3OYW6rgwtY6KdxL1W9zFiLSI4"
-range = 'Test!A2:S4'
+range = 'Test!A:R'
 response = service.get_spreadsheet_values(spreadsheet_id, range)
-puts "No data found." if response.values.empty?
-response.values.each do |row|
-  # Print columns A and E, which correspond to indices 0 and 4.
-  row.each do |value|
-    p value
-  end
-end
+puts response.values[0]
