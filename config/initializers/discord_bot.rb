@@ -1,5 +1,5 @@
 module DiscordBot
-  throw 'Lacking required secrets!' unless Rails.application.credentials.discord[:token] && 
+  throw 'Lacking required secrets!' unless Rails.application.credentials.discord[:token] &&
                                            Rails.application.credentials.discord[:client_id]
 
   require './app/bot/commands/ping.rb'
@@ -19,7 +19,7 @@ module DiscordBot
     DiscordBot::Ping,
     DiscordBot::Start,
     DiscordBot::Stop,
-    DiscordBot::Auto_msg,
+    DiscordBot::Auto_msg
   ]
   commands.each { |command| BOT.include!(command) }
 
