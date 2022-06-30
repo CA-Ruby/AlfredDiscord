@@ -1,6 +1,5 @@
 def listen_to_ping(bot)
-
-  bot.message(with_text: 'Ping!') do |event|
+  bot.command(:ping) do |event|
       event.respond 'Pong!'
   end
   
