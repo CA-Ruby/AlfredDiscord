@@ -22,4 +22,4 @@ service.authorization = authorize
 spreadsheet_id = "1ov-_HcZTn-8c4zQiCa3OYW6rgwtY6KdxL1W9zFiLSI4"
 range = 'Test!A:R'
 response = service.get_spreadsheet_values(spreadsheet_id, range)
-puts response.values[0]
+# puts response.values[0]

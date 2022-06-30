@@ -10,4 +10,8 @@ bot = Discordrb::Commands::CommandBot.new(
   prefix: '!'
 )
 
+listen_to_hello(bot)
+listen_to_ping(bot)
+listen_to_start(bot)
+
 bot.run

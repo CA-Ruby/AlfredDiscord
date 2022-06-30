@@ -1,14 +1,13 @@
 def listen_to_hello(bot)
-
-    bot.message(with_text: 'Hello!') do |event|
-        private_id = event.user.id
-        first_name = event.user.username
-        if User.find_by(private_id: private_id)
-            event.respond "Hi, #{first_name} on se connait!"
-        else
-            event.respond "ah mais je ne te connaissait pas mais maintenant on se connait #{event.user.username}"
-            User.create(private_id: private_id, first_name: first_name )
-        end
+  bot.command(:hello, description: "Permet au bot d'enregistrer l'utiilisateur si c'est la première fois qu'il lance la commande.") do |event|
+    user_id = event.user.id
+    user_name = event.user.username
+    if User.find_by(id: user_id)
+      event.respond "Bonjour, #{user_name}!"
+    else
+      event.respond "Enchanté, #{user_name}!"
+      User.create(id: user_id, name: user_name)
+      nil
     end
-
+  end
 end
