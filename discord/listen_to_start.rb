@@ -6,3 +6,5 @@ def listen_to_start(bot)
     event.send_message("Fin de la récolte d'informations, merci !")
   end
 end
+# URL formulaire avec id pré_rempli:
+#https://formfacade.com/public/104841687575539744272/all/form/1FAIpQLSdiyPte2dxpCa06pXTwMsovWFbYHlBdRXN-PalOBEFArFJx2w?usp=pp_url&entry.1656198658=#{id}
