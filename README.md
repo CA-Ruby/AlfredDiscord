@@ -1,4 +1,4 @@
-#Alfred_Discord
+# Alfred_Discord
 
 Bot Discord reprenant le fonctionnement du bot Messenger de [hgueguen](https://github.com/hgueguen/alfred-messenger).
 
