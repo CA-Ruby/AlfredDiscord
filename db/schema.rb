@@ -10,12 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_29_160220) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_30_145914) do
   create_table "flow_entries", force: :cascade do |t|
     t.string "what"
     t.string "feeling"
     t.string "flow"
-    t.integer "user_id", null: false
     t.string "activity_name"
     t.string "activity_category"
     t.integer "challenge_level"
@@ -34,6 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_29_160220) do
     t.integer "energy_level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["user_id"], name: "index_flow_entries_on_user_id"
   end
 
@@ -44,6 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_29_160220) do
     t.string "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "private_id"
   end
 
   add_foreign_key "flow_entries", "users"

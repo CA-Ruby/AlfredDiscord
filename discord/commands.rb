@@ -13,5 +13,7 @@ bot = Discordrb::Commands::CommandBot.new(
 listen_to_hello(bot)
 listen_to_ping(bot)
 listen_to_start(bot)
+listen_to_stop(bot)
+
 
 bot.run
