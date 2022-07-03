@@ -17,10 +17,15 @@ def listen_to_start(bot)
 
       event.send_message("https://formfacade.com/public/104841687575539744272/all/form/1FAIpQLSdiyPte2dxpCa06pXTwMsovWFbYHlBdRXN-PalOBEFArFJx2w?usp=pp_url&entry.1656198658=#{user.private_id}")
       intervals = intervals.drop(1)
+      p intervals
       user.update(flow_test_intervals: intervals)
       user = User.find_by(private_id: event.user.id)
-      intervals = user.flow_test_intervals.split(' ')
 
+      next unless intervals.empty?
+
+      user.stop_test
+      event.send_message("Fin automatique de la récolte d'informations :robot:")
+      break
     end
     nil
   end

@@ -2,16 +2,17 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }
 
   def start_test
-    # Define random new Time
+    # Définit les heures auxquelles le formulaire va s'envoyer
     tableau_intervals = []
     total = 0
     current_time = Time.now
     loop do
-      nouveau_temps = (60 + rand(60))#3600,5400
+      nouveau_temps = rand(3600..5400)
       current_time += nouveau_temps
       total += nouveau_temps
       tableau_intervals << current_time.iso8601
-    end until total > 500 # 8000
+      break unless total <= 8000
+    end
 
     intervals = ''
     tableau_intervals.each do |i|
@@ -19,7 +20,6 @@ class User < ApplicationRecord
       intervals << ' '
     end
 
-    # Then change user attributes in db
     update(flow_test_intervals: intervals, flow_testing: true)
   end
 

@@ -1,5 +1,6 @@
-require File.expand_path('../config/environment', __dir__)
+# frozen_string_literal: true
 
+require File.expand_path('../config/environment', __dir__)
 require 'discordrb'
 
 Dir['./discord/*'].each { |file| require file unless file.include? 'commands.rb' }
@@ -14,6 +15,5 @@ listen_to_hello(bot)
 listen_to_ping(bot)
 listen_to_start(bot)
 listen_to_stop(bot)
-
 
 bot.run
