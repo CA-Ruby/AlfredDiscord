@@ -9,6 +9,11 @@ def listen_to_start(bot)
       return nil
     end
 
+    if user.flow_testing
+      event.send_message('Commande déjà lancée !')
+      return nil
+    end
+
     event.send_message("Début de la récolte d'informations :teddy_bear:")
     event.send_message('Tu vas recevoir un formulaire à remplir plusieurs fois dans la journée, pour que je puisse évaluer ton état de flow.')
 
