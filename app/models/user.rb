@@ -11,7 +11,7 @@ class User < ApplicationRecord
       current_time += nouveau_temps
       total += nouveau_temps
       tableau_intervals << current_time.iso8601
-      break unless total <= 8000
+      break unless total <= 80_000
     end
 
     intervals = ''
