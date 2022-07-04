@@ -1,4 +1,8 @@
+# frozen_string_literal: true
+
 require 'google/apis/sheets_v4'
+
+
 
 APPLICATION_NAME = 'Alfred'.freeze
 def credentials
@@ -17,6 +21,7 @@ def credentials
   }.to_json
 end
 
+
 SCOPE = [Google::Apis::SheetsV4::AUTH_SPREADSHEETS_READONLY].freeze
 
 ##
@@ -24,8 +29,11 @@ SCOPE = [Google::Apis::SheetsV4::AUTH_SPREADSHEETS_READONLY].freeze
 # files or intitiating an OAuth2 authorization. If authorization is required,
 # the user's default browser will be launched to approve the request.
 
-def get_responses
+
+
+def retrieve_responses
   authorize = Google::Auth::ServiceAccountCredentials.make_creds(json_key_io: StringIO.new(credentials),
+
                                                                  scope: SCOPE)
   # Connect to Google
   service = Google::Apis::SheetsV4::SheetsService.new
@@ -72,4 +80,4 @@ def parse_responses(responses)
   responses_hash
 end
 
-@form_responses = parse_responses(get_responses)
+@form_responses = parse_responses(retrieve_responses)
