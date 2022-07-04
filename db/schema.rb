@@ -10,12 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_30_145914) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_04_134051) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "flow_entries", force: :cascade do |t|
     t.string "what"
     t.string "feeling"
     t.string "flow"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "activity_name"
     t.string "activity_category"
     t.integer "challenge_level"
@@ -44,7 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_30_145914) do
     t.string "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "private_id"
+    t.bigint "private_id"
   end
 
   add_foreign_key "flow_entries", "users"
