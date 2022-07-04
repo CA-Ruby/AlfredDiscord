@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  last_name: MyString
+  first_name: MyString
+  flow_testing: false
+  flow_test_intervals: MyString
+  private_id: MyString
+  role: MyString
+
+two:
+  last_name: MyString
+  first_name: MyString
+  flow_testing: false
+  flow_test_intervals: MyString
+  private_id: MyString
+  role: MyString
