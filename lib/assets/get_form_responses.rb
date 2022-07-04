@@ -2,8 +2,25 @@
 
 require 'google/apis/sheets_v4'
 
-APPLICATION_NAME = 'Alfred'
-CREDENTIALS_PATH = 'storage/credentials.json'
+
+
+APPLICATION_NAME = 'Alfred'.freeze
+def credentials
+  cred = Rails.application.credentials.google
+  @credentials ||= {
+    type: 'service_account',
+    project_id: cred.project_id,
+    private_key_id: cred[:private_key_id],
+    private_key: cred[:private_key],
+    client_email: cred[:client_email],
+    client_id: cred[:client_id],
+    auth_uri: 'https://accounts.google.com/o/oauth2/auth',
+    token_uri: 'https://oauth2.googleapis.com/token',
+    auth_provider_x509_cert_url: 'https://www.googleapis.com/oauth2/v1/certs',
+    client_x509_cert_url: cred[:client_x509_cert_url]
+  }.to_json
+end
+
 
 SCOPE = [Google::Apis::SheetsV4::AUTH_SPREADSHEETS_READONLY].freeze
 
@@ -12,8 +29,11 @@ SCOPE = [Google::Apis::SheetsV4::AUTH_SPREADSHEETS_READONLY].freeze
 # files or intitiating an OAuth2 authorization. If authorization is required,
 # the user's default browser will be launched to approve the request.
 
+
+
 def retrieve_responses
-  authorize = Google::Auth::ServiceAccountCredentials.make_creds(json_key_io: File.open(CREDENTIALS_PATH),
+  authorize = Google::Auth::ServiceAccountCredentials.make_creds(json_key_io: StringIO.new(credentials),
+
                                                                  scope: SCOPE)
   # Connect to Google
   service = Google::Apis::SheetsV4::SheetsService.new
