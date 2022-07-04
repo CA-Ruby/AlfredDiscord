@@ -5,7 +5,7 @@ class User < ApplicationRecord
     # Définit les heures auxquelles le formulaire va s'envoyer
     tableau_intervals = []
     total = 0
-    current_time = Time.now
+    current_time = Time.now.in_time_zone('Paris')
     loop do
       nouveau_temps = rand(3600..5400)
       current_time += nouveau_temps
