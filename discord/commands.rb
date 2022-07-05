@@ -15,5 +15,6 @@ listen_to_hello(bot)
 listen_to_ping(bot)
 listen_to_start(bot)
 listen_to_stop(bot)
+listen_to_link(bot)
 
 bot.run

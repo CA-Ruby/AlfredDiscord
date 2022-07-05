@@ -48,7 +48,7 @@ class FlowEntry < ApplicationRecord
       n += 1
       tab << j
     end
-    flow_potential = (tab.sum / n.to_f * 20).to_i
+    (tab.sum / n.to_f * 20).to_i
   end
 
   def energy
