@@ -5,17 +5,17 @@ def listen_to_start(bot)
     user ||= User.find_by(private_id: event.user.id)
 
     if user.nil?
-      event.send_message('Utilisateur inconnu. Présente-toi avec la commande !hello :wave:')
+      event.message.author.pm('Utilisateur inconnu. Présente-toi avec la commande !hello :wave:')
       return nil
     end
 
     if user.flow_testing
-      event.send_message('Commande déjà lancée !')
+      event.message.author.pm('Commande déjà lancée !')
       return nil
     end
 
-    event.send_message("Début de la récolte d'informations :teddy_bear:")
-    event.send_message('Tu vas recevoir un formulaire à remplir plusieurs fois dans la journée, pour que je puisse évaluer ton état de flow.')
+    event.message.author.pm("Début de la récolte d'informations :teddy_bear:")
+    event.message.author.pm('Tu vas recevoir un formulaire à remplir plusieurs fois dans la journée, pour que je puisse évaluer ton état de flow.')
 
     user.start_test
 
@@ -27,7 +27,7 @@ def listen_to_start(bot)
 
       next unless Time.parse(intervals[0]) < Time.now
 
-      event.send_message("https://formfacade.com/public/104841687575539744272/all/form/1FAIpQLSdiyPte2dxpCa06pXTwMsovWFbYHlBdRXN-PalOBEFArFJx2w?usp=pp_url&entry.1656198658=#{user.private_id}")
+      event.message.author.pm("https://formfacade.com/public/104841687575539744272/all/form/1FAIpQLSdiyPte2dxpCa06pXTwMsovWFbYHlBdRXN-PalOBEFArFJx2w?usp=pp_url&entry.1656198658=#{user.private_id}")
       intervals = intervals.drop(1)
       p intervals
       user.update(flow_test_intervals: intervals)
@@ -36,7 +36,7 @@ def listen_to_start(bot)
       next unless intervals.empty?
 
       user.stop_test
-      event.send_message("Fin automatique de la récolte d'informations :robot:")
+      event.message.author.pm("Fin automatique de la récolte d'informations :robot:")
       break
     end
     nil
