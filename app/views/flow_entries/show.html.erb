@@ -1,56 +1,60 @@
-<div class="flex flex-col max-w-full p-5">
+a
+
+<div class="flex flex-col max-w-full">
   <% @flow_entries_by_day.each do |flow_entries_of_day| %>
+   <div class="p-6 overflow-x-auto">
     <h2><%= I18n.l flow_entries_of_day[0], format: :long, locale: :'fr' %></h2>
-      <table class="table-fixed ">
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th class=" border-l border-slate-400">Activité</th>
-          <th class=" border-l border-slate-400">Etat theorique (defi/competences)</th>
-          <th class=" border-l border-slate-400">Potentiel de flow (moy ressentis)</th>
-          <th class=" border-l border-slate-400">Categorie</th>
-          <th class=" border-l border-slate-400">Niveau de compétences</th>
-          <th class=" border-l border-slate-400">Niveau de défi</th>
-          <th class=" border-l border-slate-400">Compétent</th>
-          <th class=" border-l border-slate-400">Absorbé</th>
-          <th class=" border-l border-slate-400">Objectifs clairs</th>
-          <th class=" border-l border-slate-400">Controle</th>
-          <th class=" border-l border-slate-400">Libre de l'ego</th>
-          <th class=" border-l border-slate-400">Libre du temps</th>
-          <th class=" border-l border-slate-400">Conditions réussite/échec claires</th>
-          <th class=" border-l border-slate-400">Expérience enrichissante</th>
-          <th class=" border-l border-slate-400">De mon initiative</th>
-          <th class=" border-l border-slate-400">Niveau energie</th>
-          <th class=" border-l border-slate-400">Niveau de bonheur</th>
-          <th class=" border-l border-slate-400">Ambiance sociale</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% flow_entries_of_day[1].each do |flow_entry| %>
-          <tr style="color: #424242">
-            <td><%= flow_entry.created_at.to_formatted_s(:short)  %></td>
-            <td><%= flow_entry.activity_name %></td>
-            <td><%= flow_entry.theorical_state %></td>
-            <td><%= flow_entry.flow_potential/10 %> / 10</td>
-            <td><%= flow_entry.activity_category %></td>
-            <td><%= flow_entry.skill_level + 1 %> / 5</td>
-            <td><%= flow_entry.challenge_level + 1 %> / 5</td>
-            <td><%= flow_entry.feeling_competent %> / 5</td>
-            <td><%= flow_entry.mentally_absorbed %> / 5</td>
-            <td><%= flow_entry.clear_objectives %> / 5</td>
-            <td><%= flow_entry.control_situation %> / 5</td>
-            <td><%= flow_entry.free_from_ego %> / 5</td>
-            <td><%= flow_entry.free_from_time %> / 5</td>
-            <td><%= flow_entry.clear_conditions %> / 5</td>
-            <td><%= flow_entry.great_experience %> / 5</td>
-            <td><%= flow_entry.is_voluntary? ? "Oui" : "Non" %></td>
-            <td><%= flow_entry.energy %> <%= " / 10" if flow_entry.energy %></td>
-            <td><%= flow_entry.happiness %>  <%= " / 10" if flow_entry.happiness %></td>
-            <td><%= flow_entry.social %> <%= " / 5" if flow_entry.social %></td>
+      <table>
+        <thead>
+          <tr>
+            <th class="px-3 border-b border-gray-200 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">L'heure</th>
+            <th class="px-3 border-b border-gray-200 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Activité</th>
+            <th class="px-3 border-b border-gray-200 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Etat theorique (defi/competences)</th>
+            <th class="px-3 border-b border-gray-200 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Potentiel de flow (moy ressentis) / 10</th>
+            <th class="px-3 border-b border-gray-200 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Categorie</th>
+            <th class="px-3 border-b border-gray-200 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Niveau de compétences / 5</th>
+            <th class="px-3 border-b border-gray-200 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Niveau de défi / 5</th>
+            <th class="px-3 border-b border-gray-200 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Compétent / 5</th>
+            <th class="px-3 border-b border-gray-200 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Absorbé / 5</th>
+            <th class="px-3 border-b border-gray-200 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Objectifs clairs / 5</th>
+            <th class="px-3 border-b border-gray-200 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Controle / 5</th>
+            <th class="px-3 border-b border-gray-200 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Libre de l'ego / 5</th>
+            <th class="px-3 border-b border-gray-200 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Libre du temps / 5</th>
+            <th class="px-3 border-b border-gray-200 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Conditions réussite/échec claires / 5</th>
+            <th class="px-3 border-b border-gray-200 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Expérience enrichissante / 5</th>
+            <th class="px-3 border-b border-gray-200 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">De mon initiative</th>
+            <th class="px-3 border-b border-gray-200 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Niveau energie / 10</th>
+            <th class="px-3 border-b border-gray-200 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Niveau de bonheur / 10</th>
+            <th class="px-3 border-b border-gray-200 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Ambiance sociale / 5</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% flow_entries_of_day[1].each do |flow_entry| %>
+            <tr>
+              <td  class=" text-center border-b border-gray-200"><%= flow_entry.created_at.strftime('%H:%M')%></td>
+              <td  class=" text-center border-b border-gray-200"><%= flow_entry.activity_name %></td>
+              <td  class=" text-center border-b border-gray-200"><%= flow_entry.theorical_state %></td>
+              <td  class=" text-center border-b border-gray-200"><%= flow_entry.flow_potential/10 %></td>
+              <td  class=" text-center border-b border-gray-200"><%= flow_entry.activity_category %></td>
+              <td  class=" text-center border-b border-gray-200"><%= flow_entry.skill_level + 1 %></td>
+              <td  class=" text-center border-b border-gray-200"><%= flow_entry.challenge_level + 1 %></td>
+              <td  class=" text-center border-b border-gray-200"><%= flow_entry.feeling_competent %></td>
+              <td  class=" text-center border-b border-gray-200"><%= flow_entry.mentally_absorbed %></td>
+              <td  class=" text-center border-b border-gray-200"><%= flow_entry.clear_objectives %></td>
+              <td  class=" text-center border-b border-gray-200"><%= flow_entry.control_situation %></td>
+              <td  class=" text-center border-b border-gray-200"><%= flow_entry.free_from_ego %></td>
+              <td  class=" text-center border-b border-gray-200"><%= flow_entry.free_from_time %></td>
+              <td  class=" text-center border-b border-gray-200"><%= flow_entry.clear_conditions %></td>
+              <td  class=" text-center border-b border-gray-200"><%= flow_entry.great_experience %></td>
+              <td  class=" text-center border-b border-gray-200"><%= flow_entry.is_voluntary? ? "Oui" : "Non" %></td>
+              <td  class=" text-center border-b border-gray-200"><%= flow_entry.energy %> <%= "" if flow_entry.energy %></td>
+              <td  class=" text-center border-b border-gray-200"><%= flow_entry.happiness %>  <%= "" if flow_entry.happiness %></td>
+              <td  class=" text-center border-b border-gray-200"><%= flow_entry.social %> <%= "" if flow_entry.social %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>  
   <% end %>
 </div>
 
