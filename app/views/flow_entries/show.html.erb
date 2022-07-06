@@ -29,25 +29,29 @@
         <tbody>
           <% flow_entries_of_day[1].each do |flow_entry| %>
             <tr>
-              <td  class=" text-center border-b border-gray-200"><%= flow_entry.created_at.strftime('%H:%M')%></td>
-              <td  class=" text-center border-b border-gray-200"><%= flow_entry.activity_name %></td>
-              <td  class=" text-center border-b border-gray-200"><%= flow_entry.theorical_state %></td>
-              <td  class=" text-center border-b border-gray-200"><%= flow_entry.flow_potential/10 %></td>
-              <td  class=" text-center border-b border-gray-200"><%= flow_entry.activity_category %></td>
-              <td  class=" text-center border-b border-gray-200"><%= flow_entry.skill_level + 1 %></td>
-              <td  class=" text-center border-b border-gray-200"><%= flow_entry.challenge_level + 1 %></td>
-              <td  class=" text-center border-b border-gray-200"><%= flow_entry.feeling_competent %></td>
-              <td  class=" text-center border-b border-gray-200"><%= flow_entry.mentally_absorbed %></td>
-              <td  class=" text-center border-b border-gray-200"><%= flow_entry.clear_objectives %></td>
-              <td  class=" text-center border-b border-gray-200"><%= flow_entry.control_situation %></td>
-              <td  class=" text-center border-b border-gray-200"><%= flow_entry.free_from_ego %></td>
-              <td  class=" text-center border-b border-gray-200"><%= flow_entry.free_from_time %></td>
-              <td  class=" text-center border-b border-gray-200"><%= flow_entry.clear_conditions %></td>
-              <td  class=" text-center border-b border-gray-200"><%= flow_entry.great_experience %></td>
-              <td  class=" text-center border-b border-gray-200"><%= flow_entry.is_voluntary? ? "Oui" : "Non" %></td>
-              <td  class=" text-center border-b border-gray-200"><%= flow_entry.energy %> <%= "" if flow_entry.energy %></td>
-              <td  class=" text-center border-b border-gray-200"><%= flow_entry.happiness %>  <%= "" if flow_entry.happiness %></td>
-              <td  class=" text-center border-b border-gray-200"><%= flow_entry.social %> <%= "" if flow_entry.social %></td>
+              <td  class="px-6 py-4 text-center border-b border-gray-200"><%= flow_entry.created_at.strftime('%H:%M')%></td>
+              <td  class="px-6 py-4 text-center border-b border-gray-200"><%= flow_entry.activity_name %></td>
+              <td  class="px-6 py-4 text-center border-b border-gray-200">
+                <span class="p-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                  <%= flow_entry.theorical_state %>
+                </span>
+              </td>
+              <td  class="px-6 py-4 text-center border-b border-gray-200 "><%= flow_entry.flow_potential/10 %></td>
+              <td  class="px-6 py-4 text-center border-b border-gray-200"><%= flow_entry.activity_category %></td>
+              <td  class="px-6 py-4 text-center border-b border-gray-200"><%= flow_entry.skill_level + 1 %></td>
+              <td  class="px-6 py-4 text-center border-b border-gray-200"><%= flow_entry.challenge_level + 1 %></td>
+              <td  class="px-6 py-4 text-center border-b border-gray-200"><%= flow_entry.feeling_competent %></td>
+              <td  class="px-6 py-4 text-center border-b border-gray-200"><%= flow_entry.mentally_absorbed %></td>
+              <td  class="px-6 py-4 text-center border-b border-gray-200"><%= flow_entry.clear_objectives %></td>
+              <td  class="px-6 py-4 text-center border-b border-gray-200"><%= flow_entry.control_situation %></td>
+              <td  class="px-6 py-4 text-center border-b border-gray-200"><%= flow_entry.free_from_ego %></td>
+              <td  class="px-6 py-4 text-center border-b border-gray-200"><%= flow_entry.free_from_time %></td>
+              <td  class="px-6 py-4 text-center border-b border-gray-200"><%= flow_entry.clear_conditions %></td>
+              <td  class="px-6 py-4 text-center border-b border-gray-200"><%= flow_entry.great_experience %></td>
+              <td  class="px-6 py-4 text-center border-b border-gray-200"><%= flow_entry.is_voluntary? ? "Oui" : "Non" %></td>
+              <td  class="px-6 py-4 text-center border-b border-gray-200"><%= flow_entry.energy %> <%= "" if flow_entry.energy %></td>
+              <td  class="px-6 py-4 text-center border-b border-gray-200"><%= flow_entry.happiness %>  <%= "" if flow_entry.happiness %></td>
+              <td  class="px-6 py-4 text-center border-b border-gray-200"><%= flow_entry.social %> <%= "" if flow_entry.social %></td>
             </tr>
           <% end %>
         </tbody>
