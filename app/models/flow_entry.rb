@@ -17,11 +17,11 @@ class FlowEntry < ApplicationRecord
     elsif challenge_level < 3 && skill_level > 3
       'Relaxation'
     elsif challenge_level == 3 && skill_level > 3
-      'Controle'
+      'Contrôle'
     elsif challenge_level > 3 && skill_level > 3
       'Flow'
     elsif challenge_level == 3 && skill_level == 3
-      'Controle'
+      'Contrôle'
     end
   end
 

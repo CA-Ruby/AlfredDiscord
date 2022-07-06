@@ -3,9 +3,9 @@ def listen_to_hello(bot)
     private_id = event.user.id
     user_name = event.user.username
     if User.find_by(private_id: private_id)
-      event.respond "Bonjour, #{user_name}!"
+      event.message.author.pm "Bonjour, #{user_name}!"
     else
-      event.respond "Enchanté, #{user_name}!"
+      event.message.author.pm "Enchanté, #{user_name}!"
       User.create(private_id: private_id, name: user_name)
       nil
     end
