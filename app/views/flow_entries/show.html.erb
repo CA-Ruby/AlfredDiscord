@@ -1,53 +1,58 @@
-<% @flow_entries_by_day.each do |flow_entries_of_day| %>
-  <h2><%= flow_entries_of_day[0].to_formatted_s(:rfc822) %></h2>
-  <table >
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Activité</th>
-        <th>Etat theorique (defi/competences)</th>
-        <th>Potentiel de flow (moy ressentis)</th>
-        <th>Categorie</th>
-        <th>Niveau de compétences</th>
-        <th>Niveau de défi</th>
-        <th>Compétent</th>
-        <th>Absorbé</th>
-        <th>Objectifs clairs</th>
-        <th>Controle</th>
-        <th>Libre de l'ego</th>
-        <th>Libre du temps</th>
-        <th>Conditions réussite/échec claires</th>
-        <th>Expérience enrichissante</th>
-        <th>De mon initiative</th>
-        <th>Niveau energie</th>
-        <th>Niveau de bonheur</th>
-        <th>Ambiance sociale</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% flow_entries_of_day[1].each do |flow_entry| %>
-        <tr style="color: #424242">
-          <td><%= flow_entry.created_at.to_formatted_s(:short)  %></td>
-          <td><%= flow_entry.activity_name %></td>
-          <td><%= flow_entry.theorical_state %></td>
-          <td><%= flow_entry.flow_potential/10 %> / 10</td>
-          <td><%= flow_entry.activity_category %></td>
-          <td><%= flow_entry.skill_level + 1 %> / 5</td>
-          <td><%= flow_entry.challenge_level + 1 %> / 5</td>
-          <td><%= flow_entry.feeling_competent %> / 5</td>
-          <td><%= flow_entry.mentally_absorbed %> / 5</td>
-          <td><%= flow_entry.clear_objectives %> / 5</td>
-          <td><%= flow_entry.control_situation %> / 5</td>
-          <td><%= flow_entry.free_from_ego %> / 5</td>
-          <td><%= flow_entry.free_from_time %> / 5</td>
-          <td><%= flow_entry.clear_conditions %> / 5</td>
-          <td><%= flow_entry.great_experience %> / 5</td>
-          <td><%= flow_entry.is_voluntary? ? "Oui" : "Non" %></td>
-          <td><%= flow_entry.energy %> <%= " / 10" if flow_entry.energy %></td>
-          <td><%= flow_entry.happiness %>  <%= " / 10" if flow_entry.happiness %></td>
-          <td><%= flow_entry.social %> <%= " / 5" if flow_entry.social %></td>
+<div class="flex flex-col max-w-full p-5">
+  <% @flow_entries_by_day.each do |flow_entries_of_day| %>
+    <h2><%= I18n.l flow_entries_of_day[0], format: :long, locale: :'fr' %></h2>
+      <table class="table-fixed ">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th class=" border-l border-slate-400">Activité</th>
+          <th class=" border-l border-slate-400">Etat theorique (defi/competences)</th>
+          <th class=" border-l border-slate-400">Potentiel de flow (moy ressentis)</th>
+          <th class=" border-l border-slate-400">Categorie</th>
+          <th class=" border-l border-slate-400">Niveau de compétences</th>
+          <th class=" border-l border-slate-400">Niveau de défi</th>
+          <th class=" border-l border-slate-400">Compétent</th>
+          <th class=" border-l border-slate-400">Absorbé</th>
+          <th class=" border-l border-slate-400">Objectifs clairs</th>
+          <th class=" border-l border-slate-400">Controle</th>
+          <th class=" border-l border-slate-400">Libre de l'ego</th>
+          <th class=" border-l border-slate-400">Libre du temps</th>
+          <th class=" border-l border-slate-400">Conditions réussite/échec claires</th>
+          <th class=" border-l border-slate-400">Expérience enrichissante</th>
+          <th class=" border-l border-slate-400">De mon initiative</th>
+          <th class=" border-l border-slate-400">Niveau energie</th>
+          <th class=" border-l border-slate-400">Niveau de bonheur</th>
+          <th class=" border-l border-slate-400">Ambiance sociale</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% end %>
+      </thead>
+      <tbody>
+        <% flow_entries_of_day[1].each do |flow_entry| %>
+          <tr style="color: #424242">
+            <td><%= flow_entry.created_at.to_formatted_s(:short)  %></td>
+            <td><%= flow_entry.activity_name %></td>
+            <td><%= flow_entry.theorical_state %></td>
+            <td><%= flow_entry.flow_potential/10 %> / 10</td>
+            <td><%= flow_entry.activity_category %></td>
+            <td><%= flow_entry.skill_level + 1 %> / 5</td>
+            <td><%= flow_entry.challenge_level + 1 %> / 5</td>
+            <td><%= flow_entry.feeling_competent %> / 5</td>
+            <td><%= flow_entry.mentally_absorbed %> / 5</td>
+            <td><%= flow_entry.clear_objectives %> / 5</td>
+            <td><%= flow_entry.control_situation %> / 5</td>
+            <td><%= flow_entry.free_from_ego %> / 5</td>
+            <td><%= flow_entry.free_from_time %> / 5</td>
+            <td><%= flow_entry.clear_conditions %> / 5</td>
+            <td><%= flow_entry.great_experience %> / 5</td>
+            <td><%= flow_entry.is_voluntary? ? "Oui" : "Non" %></td>
+            <td><%= flow_entry.energy %> <%= " / 10" if flow_entry.energy %></td>
+            <td><%= flow_entry.happiness %>  <%= " / 10" if flow_entry.happiness %></td>
+            <td><%= flow_entry.social %> <%= " / 5" if flow_entry.social %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
+
+
+
