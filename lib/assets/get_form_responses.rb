@@ -80,4 +80,4 @@ def parse_responses(responses)
   responses_hash
 end
 
-@form_responses = parse_responses(retrieve_responses)
+print @form_responses = parse_responses(retrieve_responses)

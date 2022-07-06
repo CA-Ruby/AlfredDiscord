@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }
 
+  has_many :flow_entries
+
   def start_test
     # Définit les heures auxquelles le formulaire va s'envoyer
     tableau_intervals = []
