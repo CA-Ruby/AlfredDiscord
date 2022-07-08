@@ -31,10 +31,8 @@
             <tr>
               <td  class="px-6 py-4 text-center border-b border-gray-200"><%= flow_entry.created_at.strftime('%H:%M')%></td>
               <td  class="px-6 py-4 text-center border-b border-gray-200"><%= flow_entry.activity_name %></td>
-              <td  class="px-6 py-4 text-center border-b border-gray-200">
-                <span class="p-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                  <%= flow_entry.theorical_state %>
-                </span>
+              <td class="px-6 py-4 text-center border-b border-gray-200">
+                <span class="p-2 inline-flex text-xs leading-5 font-semibold rounded-full <%=color(flow_entry.theorical_state)%> <%=bg(flow_entry.theorical_state)%>"><%=flow_entry.theorical_state%></span>
               </td>
               <td  class="px-6 py-4 text-center border-b border-gray-200 "><%= flow_entry.flow_potential/10 %></td>
               <td  class="px-6 py-4 text-center border-b border-gray-200"><%= flow_entry.activity_category %></td>
