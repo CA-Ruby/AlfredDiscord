@@ -1,4 +1,5 @@
 module FlowEntriesHelper
+    
     def color(theorical_state)
         case theorical_state
         when "Contrôle"  
@@ -21,6 +22,7 @@ module FlowEntriesHelper
             nil
         end
     end
+
     def bg(theorical_state)
         case theorical_state
         when "Contrôle"  
