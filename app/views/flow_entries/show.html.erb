@@ -1,6 +1,5 @@
 <div class="flex">
   <div class="flex-col m-auto">
-
     <% @flow_entries_by_day.each do |flow_entries_of_day| %>
       <div class="p-6 overflow-x-auto ">
         <h2><%= I18n.l flow_entries_of_day[0], format: :long, locale: :'fr' %><%= link_to " Voir détails", detail_path(flow_entries_day: flow_entries_of_day[1]) %></h2>
@@ -17,7 +16,7 @@
           <tbody>
             <% flow_entries_of_day[1].each do |flow_entry| %>
               <tr>
-                <td class="px-6 py-4 text-center border-b border-gray-200"><%= flow_entry.created_at.strftime('%H:%M')%></td>
+                <td class="px-6 py-4 text-center border-b border-gray-200"><%= flow_entry.created_at.localtime.strftime('%H:%M')%></td>
                 <td class="px-6 py-4 text-center border-b border-gray-200 max-w-xs "><%= flow_entry.activity_name %></td>
                 <td class="px-6 py-4 text-center border-b border-gray-200 ">
                   <span class="p-2 inline-flex text-xs font-semibold rounded-full <%=color(flow_entry.theorical_state)%> <%=bg(flow_entry.theorical_state)%>"><%=flow_entry.theorical_state%></span>
@@ -31,11 +30,4 @@
       </div>  
     <% end %>
   </div>
-
-  
-
 </div>
-
-
-
-
