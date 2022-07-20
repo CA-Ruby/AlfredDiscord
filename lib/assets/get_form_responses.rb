@@ -2,9 +2,7 @@
 
 require 'google/apis/sheets_v4'
 
-
-
-APPLICATION_NAME = 'Alfred'.freeze
+APPLICATION_NAME = 'Alfred'
 def credentials
   cred = Rails.application.credentials.google
   @credentials ||= {
@@ -21,15 +19,11 @@ def credentials
   }.to_json
 end
 
-
 SCOPE = [Google::Apis::SheetsV4::AUTH_SPREADSHEETS_READONLY].freeze
 
-##
 # Ensure valid credentials, either by restoring from the saved credentials
 # files or intitiating an OAuth2 authorization. If authorization is required,
 # the user's default browser will be launched to approve the request.
-
-
 
 def retrieve_responses
   authorize = Google::Auth::ServiceAccountCredentials.make_creds(json_key_io: StringIO.new(credentials),

@@ -8,5 +8,4 @@ class FlowEntriesController < ApplicationController
   def detail
     @flow_entries_day = FlowEntry.find(params[:flow_entries_day])
   end
-
 end

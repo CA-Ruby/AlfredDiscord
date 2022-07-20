@@ -25,7 +25,7 @@ def listen_to_start(bot)
     while user.flow_testing == true
       user = User.find_by(private_id: event.user.id)
 
-      next unless Time.parse(intervals[0]) < Time.now
+      next unless Time.parse(intervals[0]) < Time.zone.now
 
       event.message.author.pm("https://formfacade.com/public/104841687575539744272/all/form/1FAIpQLSdiyPte2dxpCa06pXTwMsovWFbYHlBdRXN-PalOBEFArFJx2w?usp=pp_url&entry.1656198658=#{user.private_id}")
       intervals = intervals.drop(1)

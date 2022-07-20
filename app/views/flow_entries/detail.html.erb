@@ -26,7 +26,7 @@
     <tbody>
         <% @flow_entries_day.each do |flow_entry| %>
             <tr>
-                <td class="py-2 text-center border-b border-gray-200"><%= flow_entry.created_at.strftime('%H:%M')%></td>
+                <td class="py-2 text-center border-b border-gray-200"><%= flow_entry.created_at.localtime.strftime('%H:%M')%></td>
                 <td class="py-2 text-center border-b border-gray-200"><%= flow_entry.activity_name %></td>
                 <td class="py-2 text-center border-b border-gray-200">
                     <span class="p-1 inline-flex text-xs font-semibold rounded-full <%=color(flow_entry.theorical_state)%> <%=bg(flow_entry.theorical_state)%>"><%=flow_entry.theorical_state%></span>
