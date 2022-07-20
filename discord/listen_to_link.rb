@@ -7,7 +7,7 @@ def listen_to_link(bot)
     flow_entries_by_day = FlowEntry.where(user: user).order(created_at: :desc).group_by { |t| t.created_at.to_date }
 
     if flow_entries_by_day.count < 2 && flow_entries.count < 10
-      event.message.author.pm('Tu auras accès à tes résultats après 10 réponses sur 2 jours minimum.')
+      event.message.author.pm('Tu auras accès à tes résultats après des réponses sur 2 jours minimum.')
     else
       event.message.author.pm("Voici le lien pour accéder à tes résultats: https://alfrediscord.herokuapp.com/flow_entries/#{user.private_id}")
     end

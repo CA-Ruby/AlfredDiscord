@@ -11,6 +11,8 @@ bot = Discordrb::Commands::CommandBot.new(
   prefix: '!'
 )
 
+User.update_all(flow_testing: false)
+
 listen_to_hello(bot)
 listen_to_ping(bot)
 listen_to_start(bot)
