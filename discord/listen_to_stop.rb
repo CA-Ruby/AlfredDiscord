@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require File.expand_path(File.join(File.dirname(__FILE__), 'responses/upload_responses'))
+require File.expand_path(File.join(File.dirname(__FILE__), 'helpers/upload_responses'))
 
 def listen_to_stop(bot)
   bot.command(:stop, description: "Stop l'algorithme pour récupérer les informations sur ton état de flow") do |event|

@@ -11,12 +11,13 @@ bot = Discordrb::Commands::CommandBot.new(
   prefix: '!'
 )
 
-User.update_all(flow_testing: false)
+User.update_all(flow_testing: false, flow_test_intervals: '')
 
 listen_to_hello(bot)
 listen_to_ping(bot)
 listen_to_start(bot)
 listen_to_stop(bot)
 listen_to_link(bot)
+listen_to_test(bot)
 
 bot.run

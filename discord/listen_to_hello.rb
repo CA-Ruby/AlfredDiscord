@@ -7,6 +7,8 @@ def listen_to_hello(bot)
     else
       event.message.author.pm "Enchanté, #{user_name}!"
       User.create(private_id: private_id, name: user_name)
+      
+
       nil
     end
   end
