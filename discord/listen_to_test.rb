@@ -4,12 +4,19 @@ require File.expand_path(File.join(File.dirname(__FILE__), 'helpers/set_timezone
 
 def listen_to_test(bot)
   bot.command(:test) do |event|
-    event.message.author.pm 'Dans quelle région vis-tu ?'
-    event.message.author.pm @regions_list.join("\n")
+    event.respond('Bouton de test') do |_, view|
+      view.row do |r|
+        r.button(label: 'Test!', style: :primary, emoji: 577663465322315786, custom_id: 'test_button:1')
+      end
 
-    bot.add_await!(Discordrb::Events::MessageEvent) { |message| @user_region = message.content; true }
-    p @user_region
-    event.message.author.pm region_zones(@user_region).join("\n")
-    nil
+      view.row do |r|
+        r.select_menu(custom_id: 'test_select', placeholder: 'Select me!', max_values: 3) do |s|
+          s.option(label: 'Foo', value: 'foo')
+          s.option(label: 'Bar', value: 'bar')
+          s.option(label: 'Baz', value: 'baz')
+          s.option(label: 'Bazinga', value: 'bazinga')
+        end
+      end
+    end
   end
 end
