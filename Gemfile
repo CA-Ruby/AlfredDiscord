@@ -47,7 +47,7 @@ gem "bootsnap", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
-gem 'discordrb'
+gem 'discordrb', github: 'shardlab/discordrb', branch: 'main'
 gem "foreman"
 gem "rake"
 gem "zeitwerk"
