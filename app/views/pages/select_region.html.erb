@@ -1,0 +1,5 @@
+<% @regions.each do |region|%>
+  <div>
+    <%= link_to region, timezone_path(region: region)%>
+  </div>
+<% end %>
