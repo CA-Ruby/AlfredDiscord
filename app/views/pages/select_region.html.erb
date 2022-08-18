@@ -1,15 +1,23 @@
 <div class="flex flex-col justify-start items-center h-screen text-center">
   <div class="flex flex-col items-center text-base">
-      <img src="https://raw.githubusercontent.com/hgueguen/alfred-messenger/master/app/assets/images/alfred_trans.png" alt="Alfred" class="w-24 h-24 2xl:w-48 2xl:h-48">
-      <h1 class="text-3xl 2xl:text-5xl font-bold">
-        Alfred : ton ami qui mesure ton niveau de flow
-      </h1>
+    <img src="https://raw.githubusercontent.com/hgueguen/alfred-messenger/master/app/assets/images/alfred_trans.png" alt="Alfred" class="w-24 h-24 2xl:w-48 2xl:h-48">
+    <h1 class="text-3xl 2xl:text-5xl font-bold">
+      Alfred : ton ami qui mesure ton niveau de flow
+    </h1>
   </div>
-  <div class="flex justify-center">
-  <%= form_for @user do |f|%>
-      <div class="text-lg"><%= f.label "Sélectionne ton fuseau horaire dans la liste:" %></div>
-      <div class=""><%= f.time_zone_select :timezone %></div>
-      <div class="text-lg"><%= f.submit "Valider" %></div>
+  <% if @user %>
+    <div class="flex justify-center">
+    <%= form_for @user do |f|%>
+        <div class="text-lg"><%= f.label "Sélectionne ton fuseau horaire dans la liste:" %></div>
+        <div class=""><%= f.time_zone_select :timezone %></div>
+        <div class="text-lg"><%= f.submit "Valider" %></div>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="flex flex-col justify-center h-screen">
+      <div class="text-xl font-semibold text-red-600">
+        Oups, quelque chose ne va pas...
+      </div>
     </div>
   <% end %>
 </div>
