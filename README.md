@@ -23,3 +23,5 @@ Ce formulaire est inspiré de [cet article](https://www.hacking-social.com/2018/
 **!stop**  : Alfred arrête d'envoyer le formulaire et enregistre les réponses envoyées. Ne fonctionne que si la commande **!start** a été lancée.
 
 **!link** &nbsp;: Alfred enverra un lien à l'utilisateur pour qu'il puisse consulter ses résultats. Il devra au préalable avoir envoyé 10 réponses sur 2j minimum.
+
+**!timezone** &nbsp;: Alfred enverra un lien à l'utilisateur pour qu'il puisse changer son fuseau horaire pour l'affichage de ses résultats.
