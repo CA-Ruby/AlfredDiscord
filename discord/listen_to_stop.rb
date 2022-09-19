@@ -9,7 +9,7 @@ def listen_to_stop(bot)
       event.message.author.pm("Veuillez lancer la commande start avant celle-ci s'il-vous-plaît. :teddy_bear:")
       return nil
     end
-    upload_responses(@form_responses)
+    upload_responses
     user.stop_test
     event.message.author.pm("Fin de la récolte d'informations, merci !")
   end

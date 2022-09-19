@@ -35,6 +35,7 @@ def listen_to_start(bot)
 
       next unless intervals.empty?
 
+      upload_responses
       user.stop_test
       event.message.author.pm("Fin automatique de la récolte d'informations :robot:")
       break
