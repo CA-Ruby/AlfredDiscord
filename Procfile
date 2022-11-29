@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-worker: bundle exec foreman start -f Procfile.dev
+web: bin/rails server -p 3000
+worker: rake bot
