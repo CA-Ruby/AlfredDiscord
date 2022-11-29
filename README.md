@@ -4,6 +4,8 @@ Bot Discord reprenant le fonctionnement du [bot Messenger de hgueguen](https://g
 
 Réalisé avec Ruby 3.0.2, Rails 7.0.3, et la gem DiscordRB par [Amine](https://github.com/scosy) et [Wilfried](https://github.com/wilfriedmuffins)
 
+▶️ [Vidéo de présentation](https://www.youtube.com/watch?v=_RRffJbcOAs)
+
 ## Fonctionnement
 
 Lié à un serveur **Discord**, Alfred va vous demander de remplir un formulaire tout au long de la journée.
