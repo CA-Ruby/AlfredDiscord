@@ -9,7 +9,7 @@ def listen_to_link(bot)
     if flow_entries_by_day.count < 2 && flow_entries.count < 10
       event.message.author.pm('Tu auras accès à tes résultats après des réponses sur 2 jours minimum.')
     else
-      event.message.author.pm("Voici le lien pour accéder à tes résultats: https://alfrediscord.herokuapp.com/flow_entries/#{user.private_id}")
+      event.message.author.pm("Voici le lien pour accéder à tes résultats:https://alfred-discord.up.railway.app/flow_entries/#{user.private_id}")
     end
     nil
   end
